@@ -6,7 +6,7 @@ use AspectMock\Proxy\ClassProxy;
 use AspectMock\Test as test;
 use Codeception\Specify;
 
-final class ClassProxyTest extends \Codeception\TestCase\Test
+final class ClassProxyTest extends \Codeception\Test\Unit
 {
 
     use Specify;
@@ -46,16 +46,16 @@ final class ClassProxyTest extends \Codeception\TestCase\Test
     {
         $this->class = test::double('demo\UserModel');
 
-        $this->specify('instance can be created from a class proxy', function() {
+        //$this->specify('instance can be created from a class proxy', function() {
             $user = $this->class->construct(['name' => 'davert']);
             verify($user->getName())->equals('davert');
             $this->assertInstanceOf('demo\UserModel', $user);
-        });
+            //});
 
-        $this->specify('instance can be created without constructor', function() {
+            //$this->specify('instance can be created without constructor', function() {
             $user = $this->class->make();
             $this->assertInstanceOf('demo\UserModel', $user);
-        });
+            //});
     }
 
     public function testClassWithTraits() {

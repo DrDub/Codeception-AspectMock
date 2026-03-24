@@ -34,7 +34,7 @@ class Kernel extends AspectKernel
         parent::init($options);
     }
 
-    protected function configureAop(AspectContainer $container)
+    protected function configureAop(AspectContainer $container): void
     {
         Registry::setMocker(new Core\Mocker);
     }

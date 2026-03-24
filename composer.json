@@ -18,13 +18,13 @@
         "goaop/framework": "^4.0@dev",
         "goaop/parser-reflection": "^4.0@dev",
         "phpunit/phpunit": "^9.5",
-        "symfony/finder": "^4.4 | ^5.4 | ^6.0"
+        "symfony/finder": "^4.4 | ^5.4 | ^6.0 | ^7.4"
     },
     "require-dev": {
-        "codeception/codeception": "^4.1",
+        "codeception/codeception": "^5.1",
         "codeception/verify": "^2.2",
         "codeception/specify": "^2.0",
-        "consolidation/robo": "^3.0"
+        "consolidation/robo": "^5.0"
     },
     "extra": {
         "branch-alias": {

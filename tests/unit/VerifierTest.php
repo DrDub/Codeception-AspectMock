@@ -41,15 +41,15 @@ final class VerifierTest extends TestCase
             verify($empty)->empty();
         };
 
-        $this->specify('closure was called', function() use ($user, $info, $matcher) {
+        //$this->specify('closure was called', function() use ($user, $info, $matcher) {
             $user->verifyInvokedMultipleTimes('setInfo', 2, $matcher);
             $user->verifyInvoked('setInfo', $matcher);
-        });
+            //});
     }
 
     public function testVerifyMagicMethods()
     {
-        $this->specify('works for class proxy', function() {
+      //$this->specify('works for class proxy', function() {
             // Set up user object.
             double::registerClass("demo\UserModel",
                                   ['renameUser'=>"Bob Jones", 'save'=>null]);
@@ -61,9 +61,9 @@ final class VerifierTest extends TestCase
 
             // Assert rename was counted.
             $userProxy->verifyInvoked('renameUser');
-        });
+            //});
 
-        $this->specify('works for instance proxy', function() {
+            //$this->specify('works for instance proxy', function() {
             // Set up user object.
             $user = new UserModel(['name'=>"John Smith"]);
             double::registerObject($user);
@@ -74,12 +74,12 @@ final class VerifierTest extends TestCase
 
             // Assert rename was counted.
             $user->verifyInvoked('renameUser');
-        });
+            //});
     }
 
     public function testverifyWithMutliplesParams()
     {
-        $this->specify('works for instance proxy', function () {
+      //$this->specify('works for instance proxy', function () {
             // Set up user object.
             $user = new UserModel(['name' => "John Smith"]);
             double::registerObject($user);
@@ -113,6 +113,6 @@ final class VerifierTest extends TestCase
             } catch (Exception $e) {
 
             }
-        });
+            //});
     }
 }

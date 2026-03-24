@@ -56,6 +56,7 @@ EOF;
     public function getParameterDeclaration(\ReflectionParameter $parameter, $internal)
     {
         $text = (string)$parameter;
+
         if (preg_match('#Parameter\s\#\d+\s\[\s<(required|optional)>(.*)(\sor NULL)(.*)\s]#', $text, $match)) {
             $text = $match[2].$match[4];
         } elseif (preg_match('#Parameter\s\#\d+\s\[\s<(required|optional)>\s(.*)\s]#', $text, $match)) {
@@ -65,7 +66,9 @@ EOF;
         }
 
         if ($internal && $parameter->isOptional()) {
-            $text .= "=NULL";
+            if (!str_contains($text, "=")) {
+              $text .= "=NULL";
+            }
         }
 
         return $text;
@@ -136,4 +139,4 @@ EOF;
     {
         $this->template = str_replace(sprintf('{{%s}}', $var), $value, $this->template);
     }
-} 
+}
