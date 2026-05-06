@@ -20,7 +20,7 @@ class Anything implements Undefined, ArrayAccess, Iterator
 
     public function __construct($className = null)
     {
-        $this->className = $className;             
+        $this->className = $className;
     }
 
     public function __toString()
@@ -61,7 +61,7 @@ class Anything implements Undefined, ArrayAccess, Iterator
     {
     }
 
-    public function current()
+    public function current() : mixed
     {
         return null;
     }
@@ -70,7 +70,7 @@ class Anything implements Undefined, ArrayAccess, Iterator
     {
     }
 
-    public function key()
+    public function key() : mixed
     {
         return null;
     }
